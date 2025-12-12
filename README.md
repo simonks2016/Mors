@@ -18,12 +18,11 @@ A real-time score derived from order flow, price movement, or other microstructu
 A sliding window classifies the local trend state into five categories:
 
 ``` go 
-  StateStrongUp   TrendState = "strong_up"
+    StateStrongUp   TrendState = "strong_up"
 	StateUp         TrendState = "up"
 	StateNeutral    TrendState = "neutral"
 	StateDown       TrendState = "down"
 	StateStrongDown TrendState = "strong_down""
-
 ```
 This determines whether the system should look for potential short or long reversal points.
 
@@ -58,16 +57,23 @@ type Signal struct {
 }
 ```
 
-Example Meaning:
-  ShortEntry: trend is strong_up and curvature indicates momentum exhaustion
-  LongEntry: trend is strong_down and curvature shows reversal forming
+### Example Meaning:
+
+* Short Entry: trend is strong_up and curvature indicates momentum exhaustion
+
+* Long Entry: trend is strong_down and curvature shows reversal forming
+
 
 ## 🧠 Design Philosophy
 
-Strategy-layer only → MORS does not manage positions
-Composable → can integrate with any trading engine or execution layer
-Microstructure-driven → signals reflect real-time energy decay
-Robust → avoids noise, avoids trend traps, filters false moves
+* Strategy-layer only → MORS does not manage positions
+
+* Composable → can integrate with any trading engine or execution layer
+
+* Microstructure-driven → signals reflect real-time energy decay
+
+* Robust → avoids noise, avoids trend traps, filters false moves
+
 
 ## 🚀 Why It Works
 
@@ -87,3 +93,6 @@ Visualization tools
 Real-time streaming integration
 
 Plug-and-play signal dashboards
+
+## ✍️ Author
+* Authored by Simon Liang, Dec 12, 2025. 
